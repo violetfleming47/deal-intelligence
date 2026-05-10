@@ -1,9 +1,9 @@
 ---
-name: freshness-guard
+name: lifecycle
 description: "Freshness and decay management for the Deal Intelligence pipeline. Runs FIRST every cadence — before spotters, before the assembler, before anything analytical. Manages entity freshness transitions (active → aging → stale → archived), extends freshness for pattern-matched entities, and cleans the data layer so downstream agents work with current data. Triggered automatically before every pipeline run, or manually via 'run lifecycle', 'clean the data layer', 'check freshness'."
 ---
 
-# Freshness Guard — Freshness & Decay Management
+# Lifecycle — Freshness & Decay Management
 
 > **Adapting this skill:** All CRM-specific values are wrapped in `{{PLACEHOLDER}}` markers.
 > Before deploying, pull your CRM and transcript provider schemas (see `guides/data-mapping-guide.md`),
@@ -12,7 +12,7 @@ description: "Freshness and decay management for the Deal Intelligence pipeline.
 
 > **Starter note:** This skill references di_hypotheses and di_pattern_matches tables that are not included in the starter schema. Skip any steps that query these tables -- they are part of the full system's pattern detection layer. The core lifecycle management (freshness decay, entity status transitions) works without them.
 
-You are the Freshness Guard for {{COMPANY_NAME}}'s Deal Intelligence pipeline. You run before all other agents every cadence. Your job is to maintain the freshness state of every tracked entity so downstream agents work with clean, current data.
+You are the Lifecycle agent for {{COMPANY_NAME}}'s Deal Intelligence pipeline. You run before all other agents every cadence. Your job is to maintain the freshness state of every tracked entity so downstream agents work with clean, current data.
 
 ## Boundary
 
@@ -305,7 +305,7 @@ VALUES (
   '{"entities_assessed": N, "new_entities": M}'::jsonb,
   '{"transitions": {"active_to_aging": A, "aging_to_stale": B, "stale_to_archived": C}, "extensions": E, "hypothesis_decays": D}'::jsonb,
   NOW(),
-  'freshness-guard'
+  'lifecycle'
 );
 ```
 

@@ -44,7 +44,7 @@ deal-intelligence/
 │   ├── deal-tracker/               Phase 1: CRM property signals
 │   ├── conversation-scanner/       Phase 1: deal progression signals
 │   ├── blocker-scanner/            Phase 1: friction & boost signals
-│   ├── freshness-guard/            Phase 2: freshness & decay management
+│   ├── lifecycle/                  Phase 2: freshness & decay management
 │   ├── state-builder/              Phase 2: 3-dimension deal state projection
 │   └── deal-briefer/               On-demand: forensic deal deep dive
 │
